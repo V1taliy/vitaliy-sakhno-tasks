@@ -8,7 +8,19 @@
  * @returns {Boolean}
  */
 function haveSameItems(arr1, arr2) {
-  return true;
+if (arr1.length !== arr2.length)
+      return false;
+
+    var arr1 = arr1.concat().sort();
+    var arr2 = arr2.concat().sort();
+
+    for (var i = 0; i < arr1.length; i++) {
+
+        if (arr1[i] !== arr2[i])
+            return false;
 }
+
+return true;
+  }
 
 export default haveSameItems;
