@@ -17,6 +17,11 @@ class Emitter {
    * @memberof Emitter
    */
   on(event, handler) {
+    if( !this.events[event] ) {
+      this.events[event] = [];
+   }
+     
+   this.events[event].push(handler);
     // Ваш код
 this.events[event] = this.events[event] || [];
 this.events[event].push(handler);
@@ -41,17 +46,7 @@ this.events[event].push(handler);
   events[event](data);
 }
   }
-}
-
-// Etot metod otsytstoval
-trigger(event, data) {
-
-  if(this.events[event]) {
-  this.events[event].forEach(function(handler) {
-    handler(data);
-  });
-}
-}
+  }
 }
 
 export default Emitter;
