@@ -6,6 +6,7 @@ class Emitter {
    */
   constructor() {
     // Ваш код
+    this.events = {};
   }
 
   /**
@@ -17,7 +18,9 @@ class Emitter {
    */
   on(event, handler) {
     // Ваш код
-  }
+this.events[event] = this.events[event] || [];
+this.events[event].push(handler);
+}
 
   /**
    * Генерирует событие -- вызывает все обработчики, связанные с событием и
@@ -29,7 +32,26 @@ class Emitter {
    */
   emit(event, data) {
     // Ваш код
+  if(this.events[event]) {
+    if(typeof events[event] == 'array'){
+  events[event].forEach(function(handler) {
+  handler(data);
+});}else{
+  if(typeof events[event] == 'function')
+  events[event](data);
+}
   }
+}
+
+// Etot metod otsytstoval
+trigger(event, data) {
+
+  if(this.events[event]) {
+  this.events[event].forEach(function(handler) {
+    handler(data);
+  });
+}
+}
 }
 
 export default Emitter;

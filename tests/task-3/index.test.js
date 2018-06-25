@@ -13,6 +13,7 @@ describe('Task 3 - Emitter implements "Publish-Subscribe" pattern', () => {
     const emitter = new Emitter();
     emitter.on('event', handler);
     emitter.emit('event', data);
+    console.log(handler.mock.calls[0][0], data, emitter.events)
     expect(handler.mock.calls[0][0]).toBe(data);
   });
 

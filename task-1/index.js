@@ -6,8 +6,9 @@
  */
 
 
-function fillSpiralMatrix(n) {
-  const result = [[]];
+
+function fillSpiralMatrix(matrix) {
+  let result = [[]];
 
   // Ваш код
   var goAround = function(matrix) {
@@ -31,10 +32,9 @@ function fillSpiralMatrix(n) {
     return goAround(matrix);
 };
 
-goAround(n);
+goAround(matrix);
 
 return result;
 };
-
 //End
 export default fillSpiralMatrix;
